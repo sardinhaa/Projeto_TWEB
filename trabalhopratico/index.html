@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>Ilha Verde Rent-a-Car — Home</title>
+  <meta name="description" content="Ilha Verde Rent-a-Car — reservas e informações sobre a frota e balcões nos Açores.">
+
+  <!-- Favicons & Manifest -->
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#4DBA87">
+
+  <!-- Styles (preload critical, load rest normally) -->
+  <link href="/css/chunk-vendors.33371dd4.css" rel="preload" as="style">
+  <link href="/css/app.893ddf06.css" rel="preload" as="style">
+  <link href="/css/chunk-vendors.33371dd4.css" rel="stylesheet">
+  <link href="/css/app.893ddf06.css" rel="stylesheet">
+
+  <!-- Optional prefetch resources to help performance -->
+  <link rel="prefetch" href="/css/chunk-22e5f41a.572a5e40.css">
+  <link rel="prefetch" href="/css/chunk-2a584c34.50f109fe.css">
+  <link rel="prefetch" href="/js/chunk-22e5f41a.0da46e00.js">
+
+  <!-- External payment widget (homologation) -->
+  <script src="https://homologation-payment.payline.com/scripts/widget-min.js" charset="utf-8" defer></script>
+  <link rel="stylesheet" href="https://homologation-payment.payline.com/styles/widget-min.css" charset="utf-8">
+
+  <!-- Small inline CSS reset to ensure page looks tidy before app loads -->
+  <style>
+    :root{box-sizing:border-box}
+    *,*::before,*::after{box-sizing:inherit}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    #app{min-height:100vh;display:flex;flex-direction:column}
+    main{flex:1;padding:1.25rem;max-width:1200px;margin:0 auto}
+    header,footer{background:#fff;padding:0.75rem 1.25rem;border-bottom:1px solid #eee}
+    .container{width:100%;margin:0 auto}
+    .hero{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:1rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand img{height:48px}
+    .cta{display:inline-block;padding:.5rem .75rem;border-radius:.5rem;background:#4DBA87;color:#fff;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div id="app" role="application">
+
+    <!-- Accessible header / navigation -->
+    <header role="banner">
+      <div class="container">
+        <div class="hero" aria-hidden="false">
+          <div class="brand">
+            <a href="/" aria-label="Ilha Verde — Home">
+              <img src="/img/logo.png" alt="Ilha Verde logo" onerror="this.style.display='none'">
+            </a>
+            <div>
+              <h1 style="margin:0;font-size:1rem">Ilha Verde Rent-a-Car</h1>
+              <p style="margin:0;font-size:.85rem;color:#666">Aluguer de viaturas nos Açores</p>
+            </div>
+          </div>
+
+          <nav aria-label="Principal">
+            <a href="/reservas" class="cta">Reservar</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content for the home page -->
+    <main role="main">
+      <div class="container">
+
+        <!-- Simple hero / reservation area -->
+        <section aria-labelledby="home-hero">
+          <div class="hero">
+            <div style="flex:1">
+              <h2 id="home-hero">Reserve o seu carro</h2>
+              <p>Escolha datas, local de levantamento e devolução, e a categoria do veículo. Trabalhamos nas principais ilhas dos Açores.</p>
+            </div>
+            <div style="min-width:280px">
+              <!-- Placeholder for reservation widget / component -->
+              <div id="reservation-widget" aria-live="polite">
+                <!-- O widget do sistema (React/Vue) será montado aqui quando os scripts carregarem -->
+                <form action="/reservar" method="get" style="display:flex;flex-direction:column;gap:.5rem">
+                  <label>
+                    Local de levantamento
+                    <select name="pickup">
+                      <option value="sao-miguel">Ponta Delgada (São Miguel)</option>
+                      <option value="terceira">Angra do Heroísmo (Terceira)</option>
+                      <option value="faial">Horta (Faial)</option>
+                    </select>
+                  </label>
+                  <label>
+                    Data início
+                    <input type="date" name="from" required>
+                  </label>
+                  <label>
+                    Data fim
+                    <input type="date" name="to" required>
+                  </label>
+                  <button type="submit" class="cta">Procurar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Fleet preview -->
+        <section aria-labelledby="fleet">
+          <h3 id="fleet">Alguns modelos da nossa frota</h3>
+          <ul style="display:flex;gap:1rem;flex-wrap:wrap;list-style:none;padding:0;margin:0">
+            <li style="flex:1 1 220px;border:1px solid #eee;padding:.75rem;border-radius:.5rem">
+              <strong>Ford Ranger</strong>
+              <div>4x4 — ideal para explorar a ilha</div>
+            </li>
+            <li style="flex:1 1 220px;border:1px solid #eee;padding:.75rem;border-radius:.5rem">
+              <strong>Renault Clio</strong>
+              <div>Compacto — económico para cidade</div>
+            </li>
+            <li style="flex:1 1 220px;border:1px solid #eee;padding:.75rem;border-radius:.5rem">
+              <strong>Hyundai i10</strong>
+              <div>Urbano — fácil de estacionar</div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Contact / info -->
+        <section aria-labelledby="contact">
+          <h3 id="contact">Contactos</h3>
+          <p>Morada: Campo de São Francisco, 9 — Ponta Delgada, Açores</p>
+          <p>Email: <a href="mailto:reserve@ilhaverde.com">reserve@ilhaverde.com</a> — Tel: +351 296 304 891</p>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:1rem">
+        <small>&copy; <span id="year"></span> Ilha Verde Rent-a-Car. Todos os direitos reservados.</small>
+        <nav aria-label="footer">
+          <a href="/termos">Termos</a>
+          <span aria-hidden="true"> · </span>
+          <a href="/contacts">Contactos</a>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
