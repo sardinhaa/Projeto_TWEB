@@ -1,0 +1,325 @@
+// colors
+$primary: #4DBA87;
+$border: #eee;
+$text-muted: #666;
+$background: #fff;
+//fonts
+$radius: .5rem;
+$font: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+
+
+:root {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+}
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+  padding: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  background: $background;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid $border;
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    a.brand-link {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-text {
+      .title { margin: 0; font-size: 1rem; }
+      .subtitle { margin: 0; font-size: .85rem; color: $text-muted; }
+    }
+  }
+
+  .main-nav {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex: 1 1 auto;
+    margin: 0 1rem;
+    justify-content: flex-start;
+    overflow: auto;
+
+    .nav-link {
+      display: inline-block;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      padding: .45rem .6rem;
+      border-radius: .25rem;
+      white-space: nowrap;
+      &:hover { background: rgba(0,0,0,0.04); }
+    }
+
+    .nav-link.active { background: $primary; color: $background; }
+  }
+
+  .header-actions {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    flex: 0 0 auto;
+
+    .user-login, .lang-select {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 13px;
+      padding: .4rem .5rem;
+      border-radius: $radius;
+      background: transparent;
+    }
+
+    .lang-select .flag { height: 16px; width: auto; display: block; border-radius: 2px; }
+  }
+
+  .header-bar {
+    height: 8px;
+    background: $primary;
+    margin-top: .5rem;
+    width: 100%;
+  }
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+.hero { display: none; }
+.cta {
+  display: inline-block;
+  padding: .5rem .75rem;
+  border-radius: $radius;
+  background: $primary;
+  color: $background;
+  text-decoration: none;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+#reservation-widget {
+  .reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button.cta {
+      cursor: pointer;
+    }
+  }
+}
+
+.widget-container {
+  min-width: 280px;
+}
+
+// ---------------------------------------
+// Fleet section
+// ---------------------------------------
+.fleet-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .fleet-item {
+    flex: 1 1 220px;
+    border: 1px solid $border;
+    padding: .75rem;
+    border-radius: $radius;
+
+    strong {
+      display: block;
+      margin-bottom: .25rem;
+    }
+  }
+}
+
+// ---------------------------------------
+// Footer
+// ---------------------------------------
+footer {
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+.banner,
+header + img {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.banner img,
+header + img {
+  display: block;
+  width: 100%;
+  height: 360px; /* adjust height as needed */
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .main-nav { display: none; }
+  header .brand img { height: 44px; }
+  .header-bar { height: 6px; }
+}
+
+@media (max-width: 520px) {
+  header .brand-text .title { font-size: .95rem; }
+  header .brand-text .subtitle { display: none; }
+  .user-login .login-text { display: none; }
+  .lang-select .lang-text { display: none; }
+}
+.hero-banner {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  position: relative;
+  min-height: 420px;
+  background-image: url('/img/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  line-height: 0;
+
+  .container {
+    max-width: 1200px;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .hero-text {
+    max-width: 540px;
+    padding: 2rem 1rem;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+
+    h2 {
+      margin: 0 0 0.25rem 0;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+    p { margin: 0; font-size: 16px; }
+  }
+
+  .reservation-overlay {
+    width: 360px;
+    background: #fff;
+    color: #222;
+    border: 6px solid rgba(77,186,135,0.12);
+    border-radius: 2px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    padding: 1rem;
+  }
+
+  .reservation-form {
+    display: grid;
+    gap: 0.5rem;
+
+    .inline-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+
+    label { font-size: 12px; color: #666; display: block; }
+    input, select {
+      width: 100%;
+      padding: 0.45rem 0.5rem;
+      border: 1px solid $border;
+      border-radius: $radius;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    button.cta {
+      margin-top: 0.25rem;
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      border-radius: $radius;
+      background: $primary;
+      color: $background;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+}
+/* Hero banner responsive adjustments */
+@media (max-width: 1000px) {
+  .hero-banner { min-height: 360px; }
+  .reservation-overlay { width: 320px; }
+}
+
+@media (max-width: 720px) {
+  .hero-banner {
+    min-height: 300px;
+  }
+  .hero-banner .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .reservation-overlay { width: 94%; max-width: 520px; }
+}
