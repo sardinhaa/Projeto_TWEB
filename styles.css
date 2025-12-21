@@ -1,0 +1,337 @@
+:root {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  background: #fff;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eee;
+}
+header .container {
+  padding: 0 1.25rem;
+}
+header .header-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+header .brand a.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+header .brand img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+header .brand .brand-text .title {
+  margin: 0;
+  font-size: 1rem;
+}
+header .brand .brand-text .subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+header .main-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 1 1 auto;
+  margin: 0 1rem;
+  justify-content: flex-start;
+  overflow: auto;
+}
+header .main-nav .nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+header .main-nav .nav-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+header .main-nav .nav-link.active {
+  background: #4DBA87;
+  color: #fff;
+}
+header .header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 0 0 auto;
+}
+header .header-actions .user-login, header .header-actions .lang-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+header .header-actions .lang-select .flag {
+  height: 16px;
+  width: auto;
+  display: block;
+  border-radius: 2px;
+}
+header .header-bar {
+  height: 8px;
+  background: #4DBA87;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero {
+  display: none;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #4DBA87;
+  color: #fff;
+  text-decoration: none;
+}
+.cta:hover {
+  opacity: 0.9;
+}
+
+#reservation-widget .reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#reservation-widget .reservation-form label {
+  display: flex;
+  flex-direction: column;
+}
+#reservation-widget .reservation-form button.cta {
+  cursor: pointer;
+}
+
+.widget-container {
+  min-width: 280px;
+}
+
+.fleet-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fleet-list .fleet-item {
+  flex: 1 1 220px;
+  border: 1px solid #eee;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+.fleet-list .fleet-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.banner,
+header + img {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  line-height: 0;
+}
+
+.banner img,
+header + img {
+  display: block;
+  width: 100%;
+  height: 360px; /* adjust height as needed */
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .main-nav {
+    display: none;
+  }
+  header .brand img {
+    height: 44px;
+  }
+  .header-bar {
+    height: 6px;
+  }
+}
+@media (max-width: 520px) {
+  header .brand-text .title {
+    font-size: 0.95rem;
+  }
+  header .brand-text .subtitle {
+    display: none;
+  }
+  .user-login .login-text {
+    display: none;
+  }
+  .lang-select .lang-text {
+    display: none;
+  }
+}
+.hero-banner {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  position: relative;
+  min-height: 420px;
+  background-image: url("/img/banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  line-height: 0;
+}
+.hero-banner .container {
+  max-width: 1200px;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.hero-banner .hero-text {
+  max-width: 540px;
+  padding: 2rem 1rem;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+.hero-banner .hero-text h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+.hero-banner .hero-text p {
+  margin: 0;
+  font-size: 16px;
+}
+.hero-banner .reservation-overlay {
+  width: 360px;
+  background: #fff;
+  color: #222;
+  border: 6px solid rgba(77, 186, 135, 0.12);
+  border-radius: 2px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+.hero-banner .reservation-form {
+  display: grid;
+  gap: 0.5rem;
+}
+.hero-banner .reservation-form .inline-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.hero-banner .reservation-form label {
+  font-size: 12px;
+  color: #666;
+  display: block;
+}
+.hero-banner .reservation-form input, .hero-banner .reservation-form select {
+  width: 100%;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  background: #fff;
+}
+.hero-banner .reservation-form button.cta {
+  margin-top: 0.25rem;
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  background: #4DBA87;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Hero banner responsive adjustments */
+@media (max-width: 1000px) {
+  .hero-banner {
+    min-height: 360px;
+  }
+  .reservation-overlay {
+    width: 320px;
+  }
+}
+@media (max-width: 720px) {
+  .hero-banner {
+    min-height: 300px;
+  }
+  .hero-banner .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .reservation-overlay {
+    width: 94%;
+    max-width: 520px;
+  }
+}/*# sourceMappingURL=styles.css.map */
