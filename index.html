@@ -2,28 +2,24 @@
 <html lang="pt-PT">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
   <title>Ilha Verde Rent-a-Car — Home</title>
   <meta name="description" content="Ilha Verde Rent-a-Car — reservas e informações sobre a frota e balcões nos Açores.">
-  <!-- Your stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
   <div id="app" role="application">
 
-    <!-- Header -->
     <header role="banner">
       <div class="container">
         <div class="header-row">
           <div class="brand">
             <a href="/" aria-label="Ilha Verde — Home" class="brand-link">
-              <img src="/img/logo.png" alt="Ilha Verde logo" onerror="this.style.display='none'">
+              <img src="img/logo.png" alt="Ilha Verde logo" onerror="this.style.display='none'">
               <div class="brand-text">
-                <h1 class="title">Ilha Verde Rent-a-Car</h1>
-                <p class="subtitle">Aluguer de viaturas nos Açores</p>
+                <span class="brand-name">Ilha Verde</span>
+                <span class="brand-slogan">Rent-a-Car</span>
               </div>
             </a>
           </div>
@@ -41,12 +37,14 @@
 
           <div class="header-actions">
             <a href="/entrar" class="user-login" aria-label="Entrar">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-7 2-8 6h16c-1-4-4-6-8-6z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-7 2-8 6h16c-1-4-4-6-8-6z"/>
+              </svg>
               <span class="login-text">Entrar</span>
             </a>
 
             <a href="#" class="lang-select" aria-label="Selecionar idioma">
-              <img src="/img/flag-pt.png" alt="Portugal" class="flag" onerror="this.style.display='none'">
+              <img src="img/flag-pt.png" alt="Portugal" class="flag" onerror="this.style.display='none'">
               <span class="lang-text">Portugal</span>
               <span class="caret" aria-hidden="true">▾</span>
             </a>
@@ -55,102 +53,202 @@
 
         <div class="header-bar" aria-hidden="true"></div>
       </div>
-     </header>
+    </header>
 
-    <!-- Full-bleed Hero Banner (replace the old banner <img> + stray closing div) -->
     <section class="hero-banner" role="region" aria-label="Banner">
-      <div class="container">
-        <div class="hero-text">
-          <h2 id="home-hero">Nove ilhas <strong>uma Escolha</strong></h2>
-          <p>Nine islands one Option</p>
-        </div>
+      <div class="hero-overlay">
+        <div class="hero-text"></div>
 
         <div class="reservation-overlay" aria-live="polite">
+          <h2 class="reservation-title">PESQUISAR</h2>
+
           <form action="/reservar" method="get" class="reservation-form">
-            <label>
-              Local de levantamento
-              <select name="pickup">
-                <option value="sao-miguel">Ponta Delgada (São Miguel)</option>
-                <option value="terceira">Angra do Heroísmo (Terceira)</option>
-                <option value="faial">Horta (Faial)</option>
-              </select>
-            </label>
-
             <div class="inline-fields">
-              <label>Data Levantamento<input type="date" name="from" required></label>
-              <label>Data Devolução<input type="date" name="to" required></label>
+              <label>
+                Levantamento
+                <select name="pickup" id="pickup" required>
+                  <option value="" disabled selected>Levantamento</option>
+                  <option value="FAIAL-Gare-Pier">FAIAL-Gare-Pier</option>
+                  <option value="FAIAL-Horta-City">FAIAL-Horta-City</option>
+                  <option value="FLORES-Airport">FLORES - Flores-Airport</option>
+                  <option value="PICO-Airport">PICO-Airport</option>
+                  <option value="PICO-Gare-Pier">PICO-Gare-Pier</option>
+                  <option value="PICO-Madalena-Village">PICO-Madalena Village</option>
+                  <option value="SAO-JORGE-Airport">SAO JORGE-Airport</option>
+                  <option value="SAO-JORGE-Gare-Pier">SAO JORGE-Gare-Pier</option>
+                  <option value="SAO-JORGE-Velas-Village">SAO JORGE-Velas Village</option>
+                  <option value="SMA-Airport">SMA - Santa Maria-Airport</option>
+                  <option value="SMG-C.S.-Francisco-City">SMG-C.S. Francisco-City</option>
+                  <option value="SMG-Hotels-S.-Miguel">SMG-Hotels-S. Miguel</option>
+                  <option value="SMG-Airport">SMG-S. Miguel-Airport</option>
+                  <option value="SMG-Solmar-Avenida-City">SMG-Solmar Avenida-City T</option>
+                  <option value="TER-Angra-City">ER-Angra-City</option>
+                  <option value="TER-Airport">TER-Terceira - Airport</option>
+                </select>
+              </label>
+
+              <label>
+                Devolução
+                <select name="dropoff" id="dropoff" required>
+                  <option value="" disabled selected>Devolução</option>
+                  <option value="FAIAL-Gare-Pier">FAIAL-Gare-Pier</option>
+                  <option value="FAIAL-Horta-City">FAIAL-Horta-City</option>
+                  <option value="FLORES-Airport">FLORES - Flores-Airport</option>
+                  <option value="PICO-Airport">PICO-Airport</option>
+                  <option value="PICO-Gare-Pier">PICO-Gare-Pier</option>
+                  <option value="PICO-Madalena-Village">PICO-Madalena Village</option>
+                  <option value="SAO-JORGE-Airport">SAO JORGE-Airport</option>
+                  <option value="SAO-JORGE-Gare-Pier">SAO JORGE-Gare-Pier</option>
+                  <option value="SAO-JORGE-Velas-Village">SAO JORGE-Velas Village</option>
+                  <option value="SMA-Airport">SMA - Santa Maria-Airport</option>
+                  <option value="SMG-C.S.-Francisco-City">SMG-C.S. Francisco-City</option>
+                  <option value="SMG-Hotels-S.-Miguel">SMG-Hotels-S. Miguel</option>
+                  <option value="SMG-Airport">SMG-S. Miguel-Airport</option>
+                  <option value="SMG-Solmar-Avenida-City">SMG-Solmar Avenida-City T</option>
+                  <option value="TER-Angra-City">ER-Angra-City</option>
+                  <option value="TER-Airport">TER-Terceira - Airport</option>
+                </select>
+              </label>
             </div>
 
             <div class="inline-fields">
-              <label>Hora Levantamento<input type="time" name="time_from" value="10:00"></label>
-              <label>Hora Devolução<input type="time" name="time_to" value="10:00"></label>
+              <label>
+                Data Levantamento
+                <input type="date" name="from" required>
+              </label>
+              <label>
+                Data Devolução
+                <input type="date" name="to" required>
+              </label>
             </div>
 
-            <label>Data de nascimento do condutor<input type="text" placeholder="AAAA-MM-DD" name="dob"></label>
+            <div class="inline-fields">
+              <label>
+                Hora Levantamento
+                <input type="time" name="time_from" value="10:00">
+              </label>
+              <label>
+                Hora Devolução
+                <input type="time" name="time_to" value="10:00">
+              </label>
+            </div>
+
+            <div class="row-1">
+              <label>
+                Data de nascimento do condutor
+                <input type="text" placeholder="AAAA-MM-DD" name="dob">
+              </label>
+            </div>
 
             <button type="submit" class="cta">Pesquisar</button>
           </form>
         </div>
       </div>
     </section>
-    <!-- Main -->
+
     <main role="main">
       <div class="container">
 
-        <!-- Hero section -->
-        <section aria-labelledby="home-hero">
-          <div class="hero">
-            <div class="hero-text">
-              <h2 id="home-hero">Reserve o seu carro</h2>
-              <p>Escolha datas, local de levantamento e devolução, e a categoria do veículo. Trabalhamos nas principais ilhas dos Açores.</p>
-            </div>
-
-            <div class="widget-container">
-              <div id="reservation-widget" aria-live="polite">
-                <form action="/reservar" method="get" class="reservation-form">
-                  <label>
-                    Local de levantamento
-                    <select name="pickup">
-                      <option value="sao-miguel">Ponta Delgada (São Miguel)</option>
-                      <option value="terceira">Angra do Heroísmo (Terceira)</option>
-                      <option value="faial">Horta (Faial)</option>
-                    </select>
-                  </label>
-                  <label>
-                    Data início
-                    <input type="date" name="from" required>
-                  </label>
-                  <label>
-                    Data fim
-                    <input type="date" name="to" required>
-                  </label>
-                  <button type="submit" class="cta">Procurar</button>
-                </form>
-              </div>
-            </div>
+        <section aria-labelledby="home-hero" class="hero" hidden>
+          <div class="hero-text">
+            <h2 id="home-hero">Reserve o seu carro</h2>
+            <p>Escolha datas, local de levantamento e devolução, e a categoria do veículo. Trabalhamos nas principais ilhas dos Açores.</p>
           </div>
         </section>
 
-        <!-- Fleet -->
         <section aria-labelledby="fleet">
-          <h3 id="fleet">Alguns modelos da nossa frota</h3>
-          <ul class="fleet-list">
-            <li class="fleet-item">
-              <strong>Ford Ranger</strong>
-              <div>4x4 — ideal para explorar a ilha</div>
+          <h3 id="fleet">Nossa frota</h3>
+
+          <div class="fleet-wrapper">
+            <button type="button" class="fleet-arrow fleet-prev" aria-label="Carros anteriores">‹</button>
+
+            <ul class="fleet-list">
+              <li class="fleet-item car-card">
+                <img src="img/Renault-Twingo.jpg" alt="Renault Twingo">
+                <strong class="car-name">Renault Twingo</strong>
+                <p class="car-group">Grp A · Mini</p>
+                <ul class="car-specs">
+                  <li><img src="img/passangers.jpg" alt="Passageiros"><span>4</span></li>
+                  <li><img src="img/bags.png" alt="Bagagem"><span>3</span></li>
+                  <li><img src="img/door.jpg" alt="Portas"><span>3</span></li>
+                  <li><img src="img/gear.jpeg" alt="Caixa"><span>M</span></li>
+                </ul>
+                <button class="cta">Reservar</button>
+              </li>
+
+              <li class="fleet-item car-card">
+                <img src="img/fordfocus.png" alt="Ford Focus">
+                <strong class="car-name">Ford Focus</strong>
+                <p class="car-group">Grp D · Compacto</p>
+                <ul class="car-specs">
+                  <li><img src="img/passangers.jpg" alt="Passageiros"><span>5</span></li>
+                  <li><img src="img/bags.png" alt="Bagagem"><span>4</span></li>
+                  <li><img src="img/door.jpg" alt="Portas"><span>5</span></li>
+                  <li><img src="img/gear.jpeg" alt="Caixa"><span>M</span></li>
+                </ul>
+                <button class="cta">Reservar</button>
+              </li>
+
+              <li class="fleet-item car-card">
+                <img src="img/Renault-Clio.png" alt="Renault Clio">
+                <strong class="car-name">Renault Clio</strong>
+                <p class="car-group">Grp C · Económico</p>
+                <ul class="car-specs">
+                  <li><img src="img/passangers.jpg" alt="Passageiros"><span>5</span></li>
+                  <li><img src="img/bags.png" alt="Bagagem"><span>2</span></li>
+                  <li><img src="img/door.jpg" alt="Portas"><span>5</span></li>
+                  <li><img src="img/gear.jpeg" alt="Caixa"><span>M</span></li>
+                </ul>
+                <button class="cta">Reservar</button>
+              </li>
+
+              <li class="fleet-item car-card">
+                <img src="img/Hyundai-I10.png" alt="Hyundai i10">
+                <strong class="car-name">Hyundai i10</strong>
+                <p class="car-group">Grp B · Citadino · City Car</p>
+                <ul class="car-specs">
+                  <li><img src="img/passangers.jpg" alt="Passageiros"><span>4</span></li>
+                  <li><img src="img/bags.png" alt="Bagagem"><span>2</span></li>
+                  <li><img src="img/door.jpg" alt="Portas"><span>5</span></li>
+                  <li><img src="img/gear.jpeg" alt="Caixa"><span>M</span></li>
+                </ul>
+                <button class="cta">Reservar</button>
+              </li>
+            </ul>
+
+            <button type="button" class="fleet-arrow fleet-next" aria-label="Carros seguintes">›</button>
+          </div>
+        </section>
+
+        <section class="sec-noticias" id="noticias" aria-labelledby="news-title">
+          <header class="sec-header">
+            <h2 id="news-title">Notícias</h2>
+          </header>
+
+          <ul class="news-list">
+            <li class="news-card">
+              <h3>Comerciais e Elétricos</h3>
+              <a href="https://ilhaverde.com/new/commercialelectric-8320" class="link-noticia">
+                <img src="img/vanselec.jpg" alt="Comerciais e Elétricos">
+              </a>
             </li>
-            <li class="fleet-item">
-              <strong>Renault Clio</strong>
-              <div>Compacto — económico para cidade</div>
+
+            <li class="news-card">
+              <h3>Carro de luxo e Serviço de Motorista</h3>
+              <a href="https://ilhaverde.com/new/luxurychauffeur-46984" class="link-noticia">
+                <img src="img/luxchauf.jpg" alt="Carro de luxo e serviço de motorista">
+              </a>
             </li>
-            <li class="fleet-item">
-              <strong>Hyundai i10</strong>
-              <div>Urbano — fácil de estacionar</div>
+
+            <li class="news-card">
+              <h3>50 anos Grupo Ilha Verde</h3>
+              <a href="https://ilhaverde.com/new/50years-46761" class="link-noticia">
+                <img src="img/50y.png" alt="50 anos Grupo Ilha Verde">
+              </a>
             </li>
           </ul>
         </section>
 
-        <!-- Contact -->
         <section aria-labelledby="contact">
           <h3 id="contact">Contactos</h3>
           <p>Morada: Campo de São Francisco, 9 — Ponta Delgada, Açores</p>
@@ -160,7 +258,6 @@
       </div>
     </main>
 
-    <!-- Footer -->
     <footer role="contentinfo">
       <div class="container footer-container">
         <small>&copy; <span id="year"></span> Ilha Verde Rent-a-Car. Todos os direitos reservados.</small>
@@ -169,6 +266,18 @@
           <span aria-hidden="true"> · </span>
           <a href="/contacts">Contactos</a>
         </nav>
+      </div>
+
+      <div id="footerSocial" class="footer-social">
+        <a href="https://www.facebook.com/ilhaverderentacar/" target="_blank" class="social facebook" aria-label="Facebook Ilha Verde">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCFzYkkc1BLQabb35BubpRYQ" target="_blank" class="social youtube" aria-label="YouTube Ilha Verde">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/ilhaverderentacar/" target="_blank" class="social instagram" aria-label="Instagram Ilha Verde">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
     </footer>
 
