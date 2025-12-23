@@ -1,0 +1,467 @@
+@charset "UTF-8";
+:root {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero {
+  display: none;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #4DBA87;
+  color: #fff;
+  text-decoration: none;
+}
+.cta:hover {
+  opacity: 0.9;
+}
+
+/* HEADER */
+header {
+  background: #fff;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eee;
+}
+header .container {
+  padding: 0 1.25rem;
+}
+header .header-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+header .brand .brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+header .brand img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+header .brand .brand-text .title {
+  margin: 0;
+  font-size: 1rem;
+}
+header .brand .brand-text .subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+header .main-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 1 1 auto;
+  margin: 0 1rem;
+  justify-content: flex-start;
+  overflow: auto;
+}
+header .main-nav .nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+header .main-nav .nav-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+header .main-nav .nav-link.active {
+  background: #4DBA87;
+  color: #fff;
+}
+header .header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 0 0 auto;
+}
+header .header-actions .user-login,
+header .header-actions .lang-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+header .header-actions .lang-select .flag {
+  height: 16px;
+  width: auto;
+  display: block;
+  border-radius: 2px;
+}
+header .header-bar {
+  height: 8px;
+  background: #4DBA87;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+/* FOOTER */
+footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* HERO / BANNER */
+.hero-banner {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  position: relative;
+  min-height: 420px;
+  background-image: url("img/banner.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  line-height: 0;
+}
+
+.hero-overlay {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 3.5rem 1.5rem 4.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-text {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 3.5rem;
+  color: #fff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+.hero-text h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+.hero-text p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* CAIXA PESQUISA */
+.reservation-overlay {
+  width: 640px;
+  background: #f4f4f4;
+  border: 6px solid #e3e7c6;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.reservation-title {
+  margin: 0;
+  padding: 0.55rem;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #555;
+  background: #dde5b2;
+}
+
+.reservation-form {
+  padding: 0.75rem 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reservation-form label {
+  font-size: 12px;
+  color: #666;
+  display: block;
+}
+.reservation-form input,
+.reservation-form select {
+  width: 100%;
+  padding: 0.35rem 0.4rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  background: #fff;
+}
+.reservation-form .inline-fields,
+.reservation-form .row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.reservation-form .row-1 {
+  width: 100%;
+}
+.reservation-form button.cta,
+.reservation-form .reservation-submit {
+  margin-top: 0.4rem;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.5rem;
+  background: #4DBA87;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* FROTA + SETAS */
+.fleet-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.fleet-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.fleet-list::-webkit-scrollbar {
+  display: none;
+}
+
+.fleet-list .fleet-item {
+  flex: 0 0 260px;
+  border: 1px solid #eee;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+.fleet-list .fleet-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.fleet-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #8bb022;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fleet-arrow:hover {
+  background: rgb(111.9942857143, 141.8057142857, 27.3942857143);
+}
+
+/* CARTÕES GERAIS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.car-card,
+.news-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Imagem do carro */
+.car-card > img {
+  max-width: 100%;
+  height: 185px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+/* Specs */
+.car-specs {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.car-specs li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.car-specs img {
+  width: 24px;
+  height: 24px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.car-specs span {
+  font-weight: 600;
+}
+
+/* NOTÍCIAS */
+.news-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  width: 100%;
+}
+
+.news-card {
+  flex: 1 1 0;
+  max-width: 100%;
+}
+
+.news-card img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* RESPONSIVE */
+@media (max-width: 880px) {
+  header .main-nav {
+    display: none;
+  }
+  header .brand img {
+    height: 44px;
+  }
+  header .header-bar {
+    height: 6px;
+  }
+}
+@media (max-width: 600px) {
+  .fleet-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 520px) {
+  header .brand-text .title {
+    font-size: 0.95rem;
+  }
+  header .brand-text .subtitle {
+    display: none;
+  }
+  header .user-login .login-text {
+    display: none;
+  }
+  header .lang-select .lang-text {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .hero-banner {
+    min-height: 360px;
+  }
+  .reservation-overlay {
+    width: 94%;
+    max-width: 720px;
+  }
+}
+@media (max-width: 720px) {
+  .hero-banner {
+    min-height: 300px;
+  }
+  .hero-overlay {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+  }
+  .hero-text {
+    position: static;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .reservation-overlay {
+    width: 94%;
+    max-width: 520px;
+  }
+  .news-list {
+    flex-direction: column;
+  }
+  .news-card {
+    width: 100%;
+  }
+}/*# sourceMappingURL=styles.css.map */
